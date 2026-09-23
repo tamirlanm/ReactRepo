@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript async Task</title>
+        <link rel="stylesheet" href="style.css"> 
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>JavaScript Runtime and Async</h1>
+
+            <section>
+                <h2>Tasks</h2>
+                <div id="tasks"></div>
+                <div class="buttons">
+                     <button id="runAllBtn">Run All Tasks</button>
+                     <button id="resetBtn">Reset Counters</button>
+                </div>
+                <p id="allStatus"></p>
+            </section>
+
+            <section>
+                <h2>Sequential vs Concurrent</h2>
+                <div class="buttons">
+                    <button id="sequentialBtn">Run Sequential</button>
+                    <button id="concurrentBtn">Run Concurrent</button>
+                </div>
+
+                <pre id="comparisonOutput">No test executed yet.</pre>
+            </section>
+
+            <section>
+                <h2>Event loop Demo</h2>
+                <h3>Expected output</h3>
+                <pre>
+                    1. Start
+                    2. Async start
+                    3. End
+                    4. Promise 1
+                    5. Async after await
+                    6. Promise 2
+                    7. Timer 1
+                    8. Timer 2
+                </pre>
+
+                <button id="eventLoopBtn">Run Event Loop Demo</button>
+                <h3>Actual output</h3>
+                <pre id="eventLoopOutput">Open console or click the button.</pre>
+            </section>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
