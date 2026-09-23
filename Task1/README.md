@@ -286,22 +286,3 @@ the total execution time is approximately:
 This happens because all three timers are waiting at the same time.
 
 Therefore, concurrent execution is usually faster for independent asynchronous operations.
-
----
-
-## Conclusion
-
-This project demonstrates how JavaScript handles asynchronous operations using:
-
-- Closures
-- Call Stack
-- Promises
-- async/await
-- setTimeout
-- Event Loop
-- Task Queue
-- Microtask Queue
-- Sequential execution
-- Concurrent execution
-
-It also demonstrates how closures can be used to keep data private and how `Promise.allSettled()` can be used to handle several asynchronous operations even when some of them fail.
