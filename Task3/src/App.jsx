@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useState } from "react";
+import AddItemForm from "./components/AddItemForm";
+import FilterBar from "./components/FilterBar";
+import DashboardItem from "./components/DashboardItem";
+import "./App.css";
 
 const initialItems = [
   {
@@ -34,7 +34,6 @@ const initialItems = [
 
 
 function App() {
-  const [count, setCount] = useState(0)
   console.log("App rendered");
 
   const [items, setItems] = useState(initialItems);
