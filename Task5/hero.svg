@@ -1,0 +1,20 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520">
+  <rect width="800" height="520" rx="36" fill="#eaf2ff"></rect>
+  <circle cx="650" cy="100" r="65" fill="#d1e1ff"></circle>
+  <circle cx="130" cy="410" r="90" fill="#dbe7ff"></circle>
+  <rect x="180" y="95" width="440" height="330" rx="24" fill="#ffffff"></rect>
+  <rect x="180" y="95" width="440" height="58" rx="24" fill="#2563eb"></rect>
+  <circle cx="214" cy="124" r="7" fill="#ffffff"></circle>
+  <circle cx="237" cy="124" r="7" fill="#ffffff"></circle>
+  <circle cx="260" cy="124" r="7" fill="#ffffff"></circle>
+  <rect x="215" y="183" width="110" height="105" rx="14" fill="#dbeafe"></rect>
+  <rect x="345" y="183" width="110" height="105" rx="14" fill="#bfdbfe"></rect>
+  <rect x="475" y="183" width="110" height="105" rx="14" fill="#93c5fd"></rect>
+  <rect x="215" y="307" width="110" height="15" rx="7" fill="#94a3b8"></rect>
+  <rect x="345" y="307" width="110" height="15" rx="7" fill="#94a3b8"></rect>
+  <rect x="475" y="307" width="110" height="15" rx="7" fill="#94a3b8"></rect>
+  <text x="400" y="375" text-anchor="middle" font-family="Arial" font-size="25" font-weight="bold" fill="#1e40af">
+    Product Explorer
+  </text>
+</svg>

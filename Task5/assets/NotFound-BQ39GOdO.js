@@ -1,0 +1,1 @@
+import{n as e,t}from"./index-DKgba1p_.js";var n=t();function r(){return(0,n.jsxs)(`section`,{className:`not-found`,children:[(0,n.jsx)(`h1`,{children:`404`}),(0,n.jsx)(`h2`,{children:`Page Not Found`}),(0,n.jsx)(`p`,{children:`Sorry, the page you are looking for does not exist.`}),(0,n.jsx)(e,{to:`/`,className:`button`,children:`Back to Home`})]})}export{r as default};
