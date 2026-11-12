@@ -1,34 +1,33 @@
 
-import { useQuery } from "@tanstack/react-query";
-
 import {
-  getProductById,
-} from "../services/service";
+  useQuery,
+  useQueryClient,
+} from "@tanstack/react-query";
 
-export function useProduct(id) {
-  const validId = /^[1-9]\d*$/.test(id ?? "");
+import { getAllProducts } from "../services/service";
+
+export function useProducts() {
+  const queryClient = useQueryClient();
 
   const query = useQuery({
-    queryKey: ["products", "detail", id],
+    queryKey: ["products", "list"],
 
     queryFn: ({ signal }) =>
-      getProductById(id, signal),
-
-    enabled: validId,
-
-    retry: (failureCount, error) =>
-      error.status !== 404 &&
-      failureCount < 1,
+      getAllProducts(signal),
   });
 
+  function refresh() {
+    return queryClient.invalidateQueries({
+      queryKey: ["products", "list"],
+      exact: true,
+    });
+  }
+
   return {
-    product: query.data,
+    products: query.data ?? [],
     loading: query.isPending,
-
     error: query.error?.message || "",
-
-    notFound:
-      !validId ||
-      query.error?.status === 404,
+    isFetching: query.isFetching,
+    refresh,
   };
 }
