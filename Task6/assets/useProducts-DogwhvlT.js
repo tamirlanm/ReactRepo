@@ -1,0 +1,1 @@
+import{i as e,t}from"./service-BCtj8apa.js";import{v as n}from"./index-BWU7Auia.js";function r(){let r=n(),i=e({queryKey:[`products`,`list`],queryFn:({signal:e})=>t(e)});function a(){return r.invalidateQueries({queryKey:[`products`,`list`],exact:!0})}return{products:i.data??[],loading:i.isPending,error:i.error?.message||``,isFetching:i.isFetching,refresh:a}}export{r as t};
