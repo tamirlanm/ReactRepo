@@ -1,5 +1,5 @@
-const BUILD = "beab95a046d4e944";
-const SHELL_FILES = ["assets/About-DMxyvCqJ.js","assets/Dashboard-zvGCpDIO.js","assets/Login-ALbygBdj.js","assets/NotFound-BE6_uaPc.js","assets/ProductDetails-B6EhCEuU.js","assets/Products-BFYzCKOa.js","assets/Profile-BKBIuxn-.js","assets/Signup-ClO53KW5.js","assets/index-CfFjsweU.css","assets/index-O3LemHs2.js","assets/jsx-runtime-BZi9cxqW.js","assets/react-BbggMMhK.js","assets/rolldown-runtime-WkwZ5CU-.js","assets/service-BpclgMXE.js","assets/useProducts-BKT7B_OE.js","hero.svg","icon-192.png","icon-512.png","index.html","manifest.json","offline/index.html"];
+const BUILD = "77ac4cf9d09d337f";
+const SHELL_FILES = ["assets/About-DMxyvCqJ.js","assets/Dashboard-DHm-8gwZ.js","assets/index-BE4uAC62.css","assets/index-FFVPir0p.js","assets/jsx-runtime-BZi9cxqW.js","assets/Login-X_ByCwly.js","assets/NotFound-CMM52EV2.js","assets/ProductDetails-Ba4ElnGe.js","assets/Products-BgpCnSG4.js","assets/Profile-v_UESCUm.js","assets/react-BbggMMhK.js","assets/rolldown-runtime-WkwZ5CU-.js","assets/service-DP1mr13u.js","assets/Signup-DQMbx8h7.js","assets/useProducts-C6-YWIqO.js","hero.svg","icon-192.png","icon-512.png","index.html","manifest.json","offline/index.html"];
 /* global BUILD, SHELL_FILES */
 
 const root = new URL(self.registration.scope);
@@ -36,6 +36,8 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("message", (event) => {
+  if (event.origin !== self.location.origin) return;
+
   if (event.data === "ACTIVATE_UPDATE") {
     event.waitUntil(self.skipWaiting());
   }
