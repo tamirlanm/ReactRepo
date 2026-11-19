@@ -20,9 +20,9 @@ export function CachedData({ cached }) {
   if (online && !cached) return null;
 
   return (
-    <p className="pwa-note" role="status">
+    <output className="pwa-note">
       Showing cached product data.
-    </p>
+    </output>
   );
 }
 
@@ -106,7 +106,7 @@ export default function PwaStatus() {
 
   return (
     <aside className="container pwa-status" aria-label="Application status">
-      <span role="status">{online ? "Online" : "Offline"}</span>
+      <output>{online ? "Online" : "Offline"}</output>
 
       {!online && (
         <a href={`${import.meta.env.BASE_URL}offline/`}>Offline help</a>

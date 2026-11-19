@@ -19,7 +19,7 @@ function buildServiceWorker() {
         "hero.svg",
         "offline/index.html",
         ...assets.map((name) => `assets/${name}`),
-      ].sort();
+      ].sort((a, b) => a.localeCompare(b, "en"));
 
       const workerPath = fileURLToPath(
         new URL("./pwa/worker.js", import.meta.url)
@@ -27,8 +27,15 @@ function buildServiceWorker() {
       const worker = await readFile(workerPath, "utf8");
       const hash = createHash("sha256").update(worker);
 
-      for (const path of files) {
-        hash.update(path).update(await readFile(`${dir}/${path}`));
+      const contents = await Promise.all(
+        files.map(async (path) => ({
+          path,
+          content: await readFile(`${dir}/${path}`),
+        }))
+      );
+
+      for (const { path, content } of contents) {
+        hash.update(path).update(content);
       }
 
       const version = hash.digest("hex").slice(0, 16);

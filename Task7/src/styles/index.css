@@ -882,6 +882,8 @@ p {
   border-radius: 10px;
   background: #dbeafe;
   color: #1e40af;
+  display: block;
+  margin: 0 0 1em;
 }
 
 .menu-toggle {
