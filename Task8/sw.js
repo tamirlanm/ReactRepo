@@ -1,5 +1,5 @@
-const BUILD = "c498abd3223992ee";
-const SHELL_FILES = ["assets/About-DMxyvCqJ.js","assets/Dashboard-BGr7Ki8P.js","assets/index-BE4uAC62.css","assets/index-CwILUig6.js","assets/jsx-runtime-BZi9cxqW.js","assets/Login-yqdUMDzA.js","assets/NotFound-C4AHxUuU.js","assets/ProductDetails-CntZMCF5.js","assets/Products-CmlrgD6g.js","assets/Profile-DGqUPWhA.js","assets/react-BbggMMhK.js","assets/rolldown-runtime-WkwZ5CU-.js","assets/Signup--W6eZYLI.js","assets/useProducts-BE6wYy7F.js","assets/useRead-MZv5Xg32.js","hero.svg","icon-192.png","icon-512.png","index.html","manifest.json","offline/index.html"];
+const BUILD = "1bd11e8e4693294e";
+const SHELL_FILES = ["assets/About-DMxyvCqJ.js","assets/Dashboard-B1IMkXOb.js","assets/index-BE4uAC62.css","assets/index-CX2pmpTJ.js","assets/jsx-runtime-BZi9cxqW.js","assets/Login-DFumWnFw.js","assets/NotFound-BzpKhyDY.js","assets/ProductDetails-BwQDRk0K.js","assets/Products-iCXkLOK4.js","assets/Profile-CRRdfp1J.js","assets/react-BbggMMhK.js","assets/rolldown-runtime-WkwZ5CU-.js","assets/Signup-CxhZi6_d.js","assets/useProducts-sigyRW1E.js","assets/useRead-Ba968HWS.js","hero.svg","icon-192.png","icon-512.png","index.html","manifest.json","offline/index.html"];
 /* global BUILD, SHELL_FILES */
 
 const root = new URL(self.registration.scope);

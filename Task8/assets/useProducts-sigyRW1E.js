@@ -1,0 +1,1 @@
+import{f as e,n as t}from"./index-CX2pmpTJ.js";import{i as n,l as r,n as i,t as a}from"./useRead-Ba968HWS.js";function o(){let o=e(r),s=e(n),c=i(t);return{products:o,...a(s),refresh:c}}export{o as t};
