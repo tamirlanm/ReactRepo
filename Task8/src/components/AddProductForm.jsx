@@ -8,44 +8,77 @@ export default function AddProductForm() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     setError("");
 
     const data = new FormData(event.currentTarget);
-    const title = String(data.get("title")).trim();
-    const description = String(data.get("description")).trim();
-    const category = String(data.get("category")).trim().toLowerCase()
-      .replace(/\s+/g, "-");
-    const price = Number(data.get("price"));
-    const stock = Number(data.get("stock"));
+    const titleValue = data.get("title");
+    const descriptionValue = data.get("description");
+    const categoryValue = data.get("category");
+    const priceValue = data.get("price");
+    const stockValue = data.get("stock");
 
     if (
-      !title ||
-      !description ||
-      !category ||
-      !Number.isFinite(price) ||
-      price < 0 ||
-      !Number.isSafeInteger(stock) ||
-      stock < 0
+        typeof titleValue !== "string" ||
+        typeof descriptionValue !== "string" ||
+        typeof categoryValue !== "string" ||
+        typeof priceValue !== "string" ||
+        typeof stockValue !== "string"
     ) {
-      setError("Enter a name, description, category, valid price and stock.");
-      return;
+        setError("Enter a name, description, category, valid price and stock.");
+        return;
+    }
+
+    const title = titleValue.trim();
+    const description = descriptionValue.trim();
+    const category = categoryValue.trim().toLowerCase().replace(/\s+/g, "-");
+    const price = Number(priceValue);
+    const stock = Number(stockValue);
+
+    if (
+        !title ||
+        !description ||
+        !category ||
+        !priceValue.trim() ||
+        !stockValue.trim() ||
+        !Number.isFinite(price) ||
+        price < 0 ||
+        !Number.isSafeInteger(stock) ||
+        stock < 0
+    ) {
+        setError("Enter a name, description, category, valid price and stock.");
+        return;
     }
 
     let product;
 
     try {
-      product = dispatch(addLocalProduct({
-        title, description, category, price, stock,
-      }));
+        product = dispatch(addLocalProduct({
+        title,
+        description,
+        category,
+        price,
+        stock,
+        }));
     } catch {
-      setError("The product could not be saved in this browser.");
-      return;
+        setError("The product could not be saved in this browser.");
+        return;
     }
 
-    navigate(`/products/${product.id}`, { state: { from: "/products" } });
-  }
+    const id = product?.id;
+
+    if (typeof id !== "string" || !id) {
+        setError("Could not open the new product.");
+        return;
+    }
+
+    try {
+        await navigate(`/products/${id}`, { state: { from: "/products" } });
+    } catch {
+        setError("The product was saved, but its page could not be opened.");
+    }
+    }
 
   return (
     <details className="content-card">

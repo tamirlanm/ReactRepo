@@ -8,20 +8,26 @@ export default function DeleteProductButton({ product, backTo }) {
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
-  function handleDelete() {
+  async function handleDelete() {
     if (!window.confirm(`Delete "${product.title}" from this browser's catalog?`)) {
-      return;
+        return;
+    }
+
+    setError("");
+
+    try {
+        dispatch(deleteCatalogProduct(product.id));
+    } catch {
+        setError("The deletion could not be saved in this browser.");
+        return;
     }
 
     try {
-      dispatch(deleteCatalogProduct(product.id));
+        await navigate(backTo, { replace: true });
     } catch {
-      setError("The deletion could not be saved in this browser.");
-      return;
+        setError("The product was deleted, but the catalog could not be opened.");
     }
-
-    navigate(backTo, { replace: true });
-  }
+    }
 
   return (
     <div className="button-row">

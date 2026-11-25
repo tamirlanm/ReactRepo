@@ -14,6 +14,14 @@ React product catalog using DummyJSON, Redux Toolkit, Firebase Authentication an
 - GET requests share a two-minute freshness window. In-flight duplicates are skipped. Request IDs prevent replaced responses from overwriting newer ones.
 - Catalog filters and pagination come from URL search parameters. Search is debounced by 300 ms. Firebase authentication remains in AuthContext.
 
+## Catalog CRUD
+
+- Create adds a product to this browser's catalog.
+- Read combines DummyJSON products with locally created products.
+- Update saves stock for local products. For DummyJSON products, PATCH simulates the update.
+- Delete removes local products or hides DummyJSON products in this browser.
+- Local changes are stored in localStorage and survive a page reload.
+
 ## Run and deploy
 
 1. Run `npm ci` inside `Task8`.
