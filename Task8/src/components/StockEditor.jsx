@@ -84,7 +84,9 @@ function StockEditor({ product }) {
 
       {mutation.isError && (
         <div className="auth-error" role="alert">
-          {mutation.error.message}
+          {mutation.error.unavailable
+            ? "You're offline. Reconnect to update stock."
+            : mutation.error.message}
         </div>
       )}
 
