@@ -1,0 +1,1 @@
+import{n as e,u as t}from"./index-BurItBcU.js";import{c as n,i as r,n as i,t as a}from"./useRead-I0gCk_Db.js";function o(){let o=t(n),s=t(r),c=i(e);return{products:o,...a(s),refresh:c}}export{o as t};
