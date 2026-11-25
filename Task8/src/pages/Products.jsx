@@ -6,6 +6,8 @@ import { useProducts } from "../hooks/useProducts";
 import { useSelector } from "react-redux";
 import { selectCatalogPage, selectCategories } from "../store/selectors";
 import { useDebouncedValue } from "../hooks/useDebouncedValue";
+import AddProductForm from "../components/AddProductForm";
+
 
 function Products() {
   const {
@@ -119,7 +121,7 @@ function Products() {
       </div>
 
       <CachedData cached={cached} />
-
+      <AddProductForm />
       <div className="filters">
         
         <label className="form-field">

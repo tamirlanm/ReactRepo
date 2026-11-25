@@ -13,6 +13,8 @@ function StockEditor({ product }) {
     useState("");
 
   const mutation = useUpdateProduct(product.id);
+  
+  const isLocal = String(product.id).startsWith("local-");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -41,11 +43,12 @@ function StockEditor({ product }) {
 
   return (
     <div className="content-card stock-editor">
-      <h2>Update Stock (Demo)</h2>
+      <h2>{isLocal ? "Update Stock" : "Update Stock (Demo)"}</h2>
 
       <p className="muted">
-        DummyJSON simulates updates without
-        permanently saving them.
+        {isLocal
+          ? "Changes are saved in this browser."
+          : "DummyJSON simulates updates without permanently saving them."}
       </p>
 
       <form onSubmit={handleSubmit}>
@@ -91,11 +94,12 @@ function StockEditor({ product }) {
       )}
 
       {mutation.isSuccess && (
-          <output className="success-message">
-            Update simulated successfully.
-            Returned stock: {mutation.data.stock}.
-          </output>
-        )}
+        <output className="success-message">
+          {isLocal
+            ? `Stock saved: ${mutation.data.stock}.`
+            : `Update simulated successfully. Returned stock: ${mutation.data.stock}.`}
+        </output>
+      )}
     </div>
   );
 }

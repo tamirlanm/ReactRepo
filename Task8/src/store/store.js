@@ -1,11 +1,14 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { fetchProduct } from "./productThunks";
 import { catalogReducer, detailsReducer, stockReducer } from "./productSlices";
+import { localProductsReducer } from "./localProducts";
+
 
 const reducer = combineReducers({
   catalog: catalogReducer,
   details: detailsReducer,
   stock: stockReducer,
+  localProducts: localProductsReducer,
 });
 
 export const store = configureStore({

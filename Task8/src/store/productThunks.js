@@ -5,6 +5,7 @@ import {
   updateProductStock,
 } from "../services/service";
 import { apiError, shouldRead } from "./requests";
+import { updateLocalStock } from "./localProducts";
 
 export const fetchProducts = createAsyncThunk(
   "catalog/fetch",
@@ -45,6 +46,10 @@ export const saveStock = createAsyncThunk(
     let result;
 
     try {
+      if (String(id).startsWith("local-")) {
+        dispatch(updateLocalStock(id, stock));
+        return { stock };
+      }
       result = await updateProductStock(id, stock, signal);
     } catch (error) {
       return rejectWithValue(apiError(error));

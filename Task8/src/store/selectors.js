@@ -5,12 +5,27 @@ const PRODUCTS_PER_PAGE = 12;
 
 export const selectCatalogRequest = (state) => state.catalog.request;
 export const selectDetailRequest = (state, id) => state.details[id] ?? idleRequest;
-export const selectProduct = (state, id) => state.catalog.byId[id];
+export const selectProductDeleted = (state, id) =>
+  state.localProducts.deleted[id] === true;
+
+export const selectProduct = (state, id) => {
+  if (selectProductDeleted(state, id)) return undefined;
+
+  return state.localProducts.created[id] ?? state.catalog.byId[id];
+};
 export const selectStockRequest = (state, id) => state.stock[id] ?? idleRequest;
 
 export const selectProducts = createSelector(
-  [(state) => state.catalog.ids, (state) => state.catalog.byId],
-  (ids, byId) => ids.map((id) => byId[id])
+  [
+    (state) => state.catalog.ids,
+    (state) => state.catalog.byId,
+    (state) => state.localProducts.created,
+    (state) => state.localProducts.deleted,
+  ],
+  (ids, byId, created, deleted) => [
+    ...ids.filter((id) => !deleted[id]).map((id) => byId[id]),
+    ...Object.values(created),
+  ]
 );
 
 export const selectCategories = createSelector([selectProducts], (products) =>

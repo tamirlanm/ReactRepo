@@ -1,5 +1,5 @@
-
 import { CachedData, OfflineData } from "../components/PwaStatus";
+import DeleteProductButton from "../components/DeleteProductButton";
 
 import {
   Link,
@@ -189,6 +189,7 @@ function ProductDetails() {
         key={product.id}
         product={product}
       />
+      <DeleteProductButton key={product.id} product={product} backTo={backTo} />
     </section>
   );
 }
