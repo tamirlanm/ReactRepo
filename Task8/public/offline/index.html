@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2563eb" />
+    <title>Offline | ProductExplorer</title>
+    <style>
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        margin: 0;
+        padding: 16px;
+        font: 1rem/1.5 system-ui, sans-serif;
+        background: #f7f9fc;
+        color: #172033;
+      }
+
+      main {
+        width: min(100%, 28rem);
+        padding: clamp(20px, 6vw, 36px);
+        border: 1px solid #e5eaf2;
+        border-radius: 16px;
+        background: white;
+      }
+
+      h1 { margin: 0; }
+
+      button {
+        min-height: 44px;
+        padding: 10px 16px;
+        border: 0;
+        border-radius: 10px;
+        background: #2563eb;
+        color: white;
+        font: inherit;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>You’re offline</h1>
+      <p>This page is unavailable right now. Reconnect and try again.</p>
+      <button type="button" id="retry">Retry Connection</button>
+    </main>
+
+    <script>
+      document.getElementById("retry").addEventListener("click", () => {
+        const path = location.pathname;
+        const home = path.replace(/\/offline(?:\/index\.html|\/)?$/, "/");
+
+        if (home === path) location.reload();
+        else location.assign(home);
+      });
+    </script>
+  </body>
+</html>
